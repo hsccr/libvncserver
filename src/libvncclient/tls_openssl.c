@@ -271,7 +271,7 @@ open_ssl_connection (rfbClient *client, int sockfd, rfbBool anonTLS, rfbCredenti
       char err_buf[256];
 
       ERR_error_string_n(err_no, err_buf, sizeof(err_buf));
-      fprintf(stderr, "\t error: %s(%d)\n", err_buf, err_no);
+      fprintf(stderr, " -  %s\n", err_buf);
     }
     return NULL;
   }
