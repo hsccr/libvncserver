@@ -266,13 +266,12 @@ open_ssl_connection (rfbClient *client, int sockfd, rfbBool anonTLS, rfbCredenti
     unsigned long err_no;
 
     rfbClientLog("Could not create new SSL context.\n");
-    fprintf(stderr, "reason:\n");
     while((err_no = ERR_get_error()) != 0)
     {
       char err_buf[256];
 
       ERR_error_string_n(err_no, err_buf, sizeof(err_buf));
-      fprintf(stderr, " -  %s\n", err_buf);
+      fprintf(stderr, "reason: %s\n", err_buf);
     }
     return NULL;
   }
